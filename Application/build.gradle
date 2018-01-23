@@ -5,7 +5,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.0.1'
     }
 }
 
@@ -13,16 +13,16 @@ apply plugin: 'com.android.application'
 
 repositories {
     jcenter()
-    maven {
-        url 'https://maven.google.com'
-    }
+    google()
 }
 
 dependencies {
-    compile "com.android.support:support-v4:26.1.0"
-    compile "com.android.support:gridlayout-v7:26.1.0"
-    compile "com.android.support:cardview-v7:26.1.0"
-    compile "com.android.support:appcompat-v7:26.1.0"
+    compile "com.android.support:support-v4:27.0.2"
+    compile "com.android.support:gridlayout-v7:27.0.2"
+    compile "com.android.support:cardview-v7:27.0.2"
+    compile "com.android.support:appcompat-v7:27.0.2"
+    compile 'gun0912.ted:tedpermission-rx2:2.1.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }
 
 // The sample build uses multiple directories to
@@ -40,13 +40,13 @@ android {
     buildToolsVersion "26.0.1"
 
     defaultConfig {
-        minSdkVersion 11
+        minSdkVersion 15
         targetSdkVersion 26
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     sourceSets {

@@ -17,10 +17,12 @@
 
 package com.example.android.bluetoothchat;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 import android.widget.ViewAnimator;
 
 import com.example.android.common.activities.SampleActivityBase;
@@ -28,6 +30,7 @@ import com.example.android.common.logger.Log;
 import com.example.android.common.logger.LogFragment;
 import com.example.android.common.logger.LogWrapper;
 import com.example.android.common.logger.MessageOnlyLogFilter;
+import com.tedpark.tedpermission.rx2.TedRx2Permission;
 
 /**
  * A simple launcher activity containing a summary sample description, sample log and a custom
@@ -48,9 +51,26 @@ public class MainActivity extends SampleActivityBase {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        TedRx2Permission.with(this)
+            .setRationaleTitle("Permission")
+            .setRationaleMessage("we need permission for bluetooth")
+            .setPermissions(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
+            .request()
+            .subscribe(tedPermissionResult -> {
+                if (tedPermissionResult.isGranted()) {
+                    Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this,
+                        "Permission Denied\n" + tedPermissionResult.getDeniedPermissions().toString(), Toast.LENGTH_SHORT)
+                        .show();
+                }
+            }, throwable -> {
+            }, () -> {
+            });
+
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            BluetoothChatFragment fragment = new BluetoothChatFragment();
+            HandleFragment fragment = new HandleFragment();
             transaction.replace(R.id.sample_content_fragment, fragment);
             transaction.commit();
         }
