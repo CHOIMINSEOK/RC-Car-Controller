@@ -1,14 +1,14 @@
 
-Android BluetoothChat Sample
+RC-Car Controller with Bluetooth Module
 ===================================
 
-This sample shows how to implement two-way text chat over Bluetooth between two Android devices, using
+Implement RC-Car Controller Based on Google Bluetooth Sample.
 all the fundamental Bluetooth API capabilities.
 
 Introduction
 ------------
 
-This sample should be run on two Android devices at the same time, to establish a two-way chat over
+This should be run on Android device with `HC-06` Bluetooth Module RC-Car at the same time, to establish conversation
 Bluetooth between the devices. Select "Made discoverable" in overflow menu on one device and click
 on the Bluetooth icon on the other one, to find the device and establish the connection.
 
@@ -33,31 +33,10 @@ Pre-requisites
 --------------
 
 - Android SDK 26
-- Android Build Tools v26.0.1
+- Android Build Tools v27.0.2
 - Android Support Repository
 
-Screenshots
--------------
 
-<img src="screenshots/1-launch.png" height="400" alt="Screenshot"/> <img src="screenshots/2-devices.png" height="400" alt="Screenshot"/> <img src="screenshots/3-chat.png" height="400" alt="Screenshot"/> 
-
-Getting Started
----------------
-
-This sample uses the Gradle build system. To build this project, use the
-"gradlew build" command or use "Import Project" in Android Studio.
-
-Support
--------
-
-- Google+ Community: https://plus.google.com/communities/105153134372062985968
-- Stack Overflow: http://stackoverflow.com/questions/tagged/android
-
-If you've found an error in this sample, please file an issue:
-https://github.com/googlesamples/android-BluetoothChat
-
-Patches are encouraged, and may be submitted by forking this project and
-submitting a pull request through GitHub. Please see CONTRIBUTING.md for more details.
 
 License
 -------
